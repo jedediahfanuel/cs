@@ -1,6 +1,6 @@
 # cs
 
-TODO: Write a description here
+Crystal Seek is another `ls` a like command.
 
 ## Installation
 
