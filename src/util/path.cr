@@ -2,7 +2,7 @@ require "./err"
 
 def self.test_path(path : String)
   path = path.strip
-  if File.directory?(path)
+  if Dir.exists?(path)
     path
   else
     Err.out(path, "is not a valid directory")

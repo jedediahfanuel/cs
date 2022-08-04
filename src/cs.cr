@@ -15,9 +15,8 @@ OptionParser.parse do |parser|
     exit
   end
   
-  parser.on "-c", "--color", "Use coloring output" do
-    config
-    print Var.curdc.join(" ") ; exit
+  parser.on "-c", "--color", "Use colorized output" do
+    Format.color = true
   end
   
   parser.on "-p PATH", "--path PATH", "Specify the path" do |path| 
@@ -27,10 +26,14 @@ OptionParser.parse do |parser|
   end
   
   parser.on "-s", "--slash", "Append slash on directory" do
-    append_slash
+    Format.append_slash
   end
 end
 
-# Default command [ without arguments ]
-print Var.curd.join(" ")
+if Format.color
+  Format.load_color
+  print Var.curdc.join(" ")
+else
+  print Var.curd.join(" ")
+end
 
