@@ -2,7 +2,7 @@ require "option_parser"
 require "./util/*"
 
 OptionParser.parse do |parser|
-  parser.banner = "Usage: cs -- [argument]"
+  parser.banner = "Usage: cs [argument]"
   
   parser.invalid_option do |flag|
     Err.out(flag, "is not a valid option\n")
