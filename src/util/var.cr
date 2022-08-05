@@ -2,7 +2,7 @@ module Var
   @@os_unix : Bool          = Path.new(@@path).windows?
   @@path    : String        = Dir.current
   @@curd    : Array(String) = Dir.entries(@@path).sort
-  @@curdc = [] of Array(Colorize::Object(String) | String)
+  @@curdc = [] of Colorize::Object(String) | String
   
   def self.os_unix              ; @@os_unix end
   
