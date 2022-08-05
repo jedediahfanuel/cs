@@ -15,6 +15,7 @@ Download the binaries in the [Release Page](https://github.com/Jeddi212/cs/relea
 - Clone this project
 - `cd ./cs`
 - Then run this command
+
 | Using Crystal | Using Shards |
 |---|---|
 |`crystal build ./src/cs.cr` | `shards build`|
