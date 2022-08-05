@@ -16,7 +16,7 @@ OptionParser.parse do |parser|
   end
   
   parser.on "-c", "--color", "Use colorized output" do
-    Format.color = true
+    Format.is_color = true
   end
   
   parser.on "-p PATH", "--path PATH", "Specify the path" do |path| 
@@ -28,9 +28,16 @@ OptionParser.parse do |parser|
   parser.on "-s", "--slash", "Append slash on directory" do
     Format.append_slash
   end
+  
+  parser.on "-t", "--tab", "Use tabular output" do
+    Format.is_table = true
+  end
 end
 
-if Format.color
+if Format.is_table
+  Format.tabular_output
+  print Var.table.map(&.join(" ")).join("\n")
+elsif Format.is_color
   Format.load_color
   print Var.curdc.join(" ")
 else
