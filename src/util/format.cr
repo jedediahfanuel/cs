@@ -5,18 +5,16 @@ require "./var"
 module Format
   @@is_color = false
   @@is_npath = false
+  @@is_slash = false
   @@is_table = false
   
-  {% for name in %w{is_color is_npath is_table} %}
-    def self.{{name.id}}            ; @@is_table        end
-    def self.{{name.id}}=(b : Bool) ; @@is_table = Bool end
+  {% for name in %w{is_color is_npath is_slash is_table} %}
+    def self.{{name.id}}            ; @@{{name.id}}        end
+    def self.{{name.id}}=(b : Bool) ; @@{{name.id}} = Bool end
   {% end %}
   
-  def self.load_color
-    Var.curdc = Var.curd.map do |entry|
-      entry = entry.colorize.fore(:blue).mode(:bold) if File.directory? Path.new(Var.path, entry)
-      entry
-    end
+  def self.load_color(str : String)
+    File.directory?(Path.new(Var.path, str)) ? str.colorize.fore(:blue).mode(:bold) : str
   end
   
   def self.append_slash
@@ -26,7 +24,7 @@ module Format
     end
   end
   
-  def self.tabular_output
+  def self.tabular
     Var.curd.each do |entry|
       fi = File.info(Path.new(Var.path, entry))
       

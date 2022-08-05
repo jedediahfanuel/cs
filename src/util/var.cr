@@ -1,12 +1,10 @@
 module Var 
   @@os_unix : Bool          = Path.new(@@path).windows?
   @@path    : String        = Dir.current
+  
   @@curd    : Array(String) = Dir.entries(@@path).sort
-  @@curdc = [] of Colorize::Object(String) | String
   
   @@table  = [] of Array(String)
-  @@tablec = [] of Colorize::Object(String) | String
-  
   @@just = Array(Int8).new(6, 0_i8)
   
   def self.os_unix              ; @@os_unix end
@@ -18,9 +16,6 @@ module Var
   def self.reload_curd          ; @@curd = Dir.entries(@@path).sort end
   def self.curd=(path : String) ; @@curd = Dir.entries(path).sort end
   def self.curd=(ary  : Array(String)) ; @@curd = ary end
-  
-  def self.curdc                ; @@curdc end
-  def self.curdc=(ary  : Array(Colorize::Object(String) | String)) ; @@curdc = ary end
   
   def self.table                    ; @@table end
   def self.just                     ; @@just  end
