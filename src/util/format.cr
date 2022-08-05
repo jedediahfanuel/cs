@@ -42,8 +42,7 @@ module Format
   end
   
   private def self.adjust_column(row : Array(String)) : Array(Int8)
-    temp_just = 0_i8
-    row.map { |col| check_length(col, temp_just) }
+    row.map_with_index { |col, i| check_length(col, Var.just[i]) }
   end
   
   private def self.check_length(str : String, temp_just : Int8) : Int8
