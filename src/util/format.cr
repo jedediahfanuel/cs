@@ -4,13 +4,13 @@ require "./var"
 
 module Format
   @@is_color = false
+  @@is_npath = false
   @@is_table = false
-
-  def self.is_color            ; @@is_color        end
-  def self.is_color=(b : Bool) ; @@is_color = Bool end
   
-  def self.is_table            ; @@is_table        end
-  def self.is_table=(b : Bool) ; @@is_table = Bool end
+  {% for name in %w{is_color is_npath is_table} %}
+    def self.{{name.id}}            ; @@is_table        end
+    def self.{{name.id}}=(b : Bool) ; @@is_table = Bool end
+  {% end %}
   
   def self.load_color
     Var.curdc = Var.curd.map do |entry|
