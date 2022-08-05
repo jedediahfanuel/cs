@@ -4,6 +4,9 @@ module Var
   @@curd    : Array(String) = Dir.entries(@@path).sort
   @@curdc = [] of Colorize::Object(String) | String
   
+  @@table  = [] of Array(String)
+  @@tablec = [] of Colorize::Object(String) | String
+  
   def self.os_unix              ; @@os_unix end
   
   def self.path                 ; @@path end
@@ -16,5 +19,7 @@ module Var
   
   def self.curdc                 ; @@curdc end
   def self.curdc=(ary  : Array(Colorize::Object(String) | String)) ; @@curdc = ary end
+  
+  def self.table                 ; @@table end
 end
 
