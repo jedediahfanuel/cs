@@ -29,6 +29,7 @@ module Format
   def self.tabular_output
     Var.curd.each do |entry|
       fi = File.info(Path.new(Var.path, entry))
+      
       Var.table << [
         fi.permissions.to_s,
         System::User.find_by(id: fi.group_id).username.to_s,
@@ -37,6 +38,17 @@ module Format
         fi.modification_time.to_local.to_s("%F %T").to_s,
         entry
       ]
+      
+      Var.just = adjust_column(Var.table.last)
     end
+  end
+  
+  private def self.adjust_column(row : Array(String)) : Array(Int8)
+    temp_just = 0_i8
+    row.map { |col| check_length(col, temp_just) }
+  end
+  
+  private def self.check_length(str : String, temp_just : Int8) : Int8
+    str.size > temp_just ? str.size.to_i8 : temp_just
   end
 end

@@ -36,7 +36,12 @@ end
 
 if Format.is_table
   Format.tabular_output
-  print Var.table.map(&.join(" ")).join("\n")
+  # print Var.table.map(&.map(&.ljust(20, ' ')).join(" ")).join("\n")
+  print Var.table.map { |a| 
+    a.map_with_index { |col, i| 
+      col.matches?(/\D/) ? col.ljust(Var.just[i], ' ') : col.rjust(Var.just[i], ' ')
+    }.join(" ")
+  }.join("\n")
 elsif Format.is_color
   Format.load_color
   print Var.curdc.join(" ")

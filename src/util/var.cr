@@ -7,6 +7,8 @@ module Var
   @@table  = [] of Array(String)
   @@tablec = [] of Colorize::Object(String) | String
   
+  @@just = Array(Int8).new(6, 0_i8)
+  
   def self.os_unix              ; @@os_unix end
   
   def self.path                 ; @@path end
@@ -17,9 +19,11 @@ module Var
   def self.curd=(path : String) ; @@curd = Dir.entries(path).sort end
   def self.curd=(ary  : Array(String)) ; @@curd = ary end
   
-  def self.curdc                 ; @@curdc end
+  def self.curdc                ; @@curdc end
   def self.curdc=(ary  : Array(Colorize::Object(String) | String)) ; @@curdc = ary end
   
-  def self.table                 ; @@table end
+  def self.table                    ; @@table end
+  def self.just                     ; @@just  end
+  def self.just=(ary : Array(Int8)) ; @@just = ary end
 end
 
