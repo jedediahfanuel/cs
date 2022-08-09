@@ -1,2 +1,10 @@
 version: 2.0
-shards: {}
+shards:
+  ioctl:
+    git: https://github.com/crystal-posix/ioctl.cr.git
+    version: 0.1.2
+
+  term-screen:
+    git: https://github.com/crystal-term/screen.git
+    version: 0.1.0+git.commit.b3a57931b529d60f4e626913feef21b30a6e697a
+
