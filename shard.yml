@@ -15,3 +15,5 @@ license: MIT
 dependencies:
   term-screen:
     github: crystal-term/screen
+  grid:
+    github: Jeddi212/grid
