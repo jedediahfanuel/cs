@@ -40,6 +40,6 @@ if Format.is_table
   Format.tabular
   PrintOut.tabular
 else
-  PrintOut.liner
+  PrintOut.grid
 end
 
