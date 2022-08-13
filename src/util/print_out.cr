@@ -1,5 +1,8 @@
 require "./format"
 require "./var"
+require "grid"
+require "term-screen"
+
 
 module PrintOut
   def self.tabular
@@ -18,6 +21,15 @@ module PrintOut
     final = Var.curd.map do |entry|
       Format.is_color ? Format.load_color(entry) : entry
     end.join(" ")
+    
+    print final
+  end
+  
+  def self.grid
+    grid = Grid.new(Var.curd)
+    grid.virtual_generate(Term::Screen.width)
+    grid.virtual_to_canvas
+    final = grid.to_s
     
     print final
   end
