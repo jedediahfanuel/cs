@@ -7,6 +7,8 @@ module Var
   @@table  = [] of Array(String)
   @@just = Array(Int8).new(6, 0_i8)
   
+  @@header = ["Permissions", "Group", "User", "Size", "Modified", "Name"]
+  
   def self.os_unix              ; @@os_unix end
   
   def self.path                 ; @@path end
@@ -20,5 +22,7 @@ module Var
   def self.table                    ; @@table end
   def self.just                     ; @@just  end
   def self.just=(ary : Array(Int8)) ; @@just = ary end
+  
+  def self.header                   ; @@header end
 end
 
