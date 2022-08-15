@@ -11,7 +11,7 @@ module PrintOut
         col = i == 5 ? Format.load_color(col) : col if Format.is_color
         col
       end.join(" ")
-    }.join("\n")
+    }.join("\n") + ("\n")
   end
 
   def self.header
@@ -33,5 +33,9 @@ module PrintOut
     final = grid.to_s
 
     print final
+  end
+  
+  def self.path_header(_path : String)
+    print "#{Format.path_header(_path)}: \n"
   end
 end

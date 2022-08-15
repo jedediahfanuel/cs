@@ -5,7 +5,7 @@ module Log
     STDOUT.print(
       "INFO".colorize.fore(:green).mode(:bold),
       ": ",
-      "#{var.colorize.fore(:cyan).mode(:bold)} #{custom_string}",
+      "#{var.colorize.fore(:cyan).mode(:bold)} #{custom_string}\n",
     )
   end
   
@@ -13,7 +13,7 @@ module Log
     STDOUT.print(
       "WARN".colorize.fore(:yellow).mode(:bold),
       ": ",
-      "#{var.colorize.fore(:blue).mode(:bold)} #{custom_string}",
+      "#{var.colorize.fore(:blue).mode(:bold)} #{custom_string}\n",
     )
   end
   
@@ -21,7 +21,7 @@ module Log
     STDERR.print(
       "ERROR".colorize.fore(:red).mode(:bold),
       ": ",
-      "#{var.colorize.fore(:yellow).mode(:bold)} #{custom_string}",
+      "#{var.colorize.fore(:yellow).mode(:bold)} #{custom_string}\n",
     )
   end
 end

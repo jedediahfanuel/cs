@@ -2,6 +2,12 @@ require "./log"
 require "./var"
 
 module NPath
+  def self.filter_path : Array(String)
+    ARGV.reject(&.starts_with?('-')).map do |path|
+      path
+    end
+  end
+  
   def self.test_path(path : String)
     path = path.strip.sub('~', Path.home)
 
@@ -9,13 +15,17 @@ module NPath
       path
     else
       Log.warn(path, "is not a valid directory")
-      exit(1)
+      ""
     end
   end
 
   def self.update_path(path : String)
     path = test_path(path)
-    Var.path = path unless path.empty?
-    Var.reload_curd
+    unless path.empty?
+      Var.path = path
+      true
+    else
+      false
+    end
   end
 end
