@@ -5,7 +5,7 @@ OptionParser.parse do |parser|
   parser.banner = "Usage: cs [argument]"
 
   parser.invalid_option do |flag|
-    Err.out(flag, "is not a valid option\n")
+    Log.err(flag, "is not a valid option\n")
     STDERR.puts parser
     exit(1)
   end
