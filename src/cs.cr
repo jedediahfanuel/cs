@@ -19,10 +19,6 @@ OptionParser.parse do |parser|
     Format.is_color = true
   end
 
-  parser.on "-p PATH", "--path PATH", "Specify the path" do |path|
-    NPath.update_path(path)
-  end
-
   parser.on "-s", "--slash", "Append slash on directory" do
     Format.is_slash = true
   end
@@ -33,16 +29,36 @@ OptionParser.parse do |parser|
   end
 end
 
-if Format.is_slash
-  Format.append_slash
+def proceed
+  if Format.is_slash
+    Format.append_slash
+  end
+  
+  if Format.is_table
+    Format.header_just
+    Format.tabular
+  
+    PrintOut.header if Format.is_header
+    PrintOut.tabular
+  else
+    PrintOut.grid
+  end
 end
 
-if Format.is_table
-  Format.header_just
-  Format.tabular
-
-  PrintOut.header if Format.is_header
-  PrintOut.tabular
-else
-  PrintOut.grid
+if NPath.filter_path.empty?
+  PrintOut.path_header(Var.path)
+  proceed
+  exit(1)
 end
+
+NPath.filter_path.each do |path|
+  if NPath.update_path(path)
+    PrintOut.path_header(path)
+    
+    Var.reload_curd
+    proceed
+    
+    print "\n"
+  end
+end
+

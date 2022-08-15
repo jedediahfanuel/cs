@@ -33,6 +33,10 @@ module Format
   def self.header(ary = Var.header)
     ary.map { |title| title.colorize.mode(:bold) }
   end
+  
+  def self.path_header(_path : String)
+    _path.colorize.fore(:green).mode(:bold)
+  end
 
   def self.tabular
     Var.curd.each do |entry|
