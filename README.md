@@ -34,9 +34,29 @@ Then, add the binaries to your PATH environment
 | -s | --slash | Append slash on directory |
 | -t | --tab | Use tabular output |
 
+Example:
+```
+cs -t -s -c
+
+Use tabular output
+Append slash behind the directories
+Use coloring for the directories
+
+1 Directory gonna be listed and printed out (current directory)
+```
+
+```
+cs ~ ../ /usr/bin
+
+Use grid output
+3 directories gonna be listed and printed out ("~", "../", "/usr/bin")
+NOTE: ~ gonne be substituted by your home directory
+```
+
+
 ## Development
 
-~
+Currently, grid (default) output doesn't support colored output.
 
 ## Contributing
 
