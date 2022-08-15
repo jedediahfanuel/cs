@@ -22,6 +22,8 @@ Download the binaries in the [Release Page](https://github.com/Jeddi212/cs/relea
 
 > ( optional arguments `--release --no-debug` )
 
+Then, add the binaries to your PATH environment
+
 ## Usage
 
 ### Scoped feature:
@@ -29,7 +31,6 @@ Download the binaries in the [Release Page](https://github.com/Jeddi212/cs/relea
 |---|---|---|
 | -h | --help | Display help page |
 | -c | --color | Use colorized output |
-| -p PATH | --path PATH | Specify the path |
 | -s | --slash | Append slash on directory |
 | -t | --tab | Use tabular output |
 
@@ -39,7 +40,7 @@ Download the binaries in the [Release Page](https://github.com/Jeddi212/cs/relea
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/cs/fork>)
+1. Fork it (<https://github.com/Jeddi212/cs/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -47,7 +48,7 @@ Download the binaries in the [Release Page](https://github.com/Jeddi212/cs/relea
 
 ## Contributors
 
-- [Jeddi212](https://github.com/your-github-user) - creator and maintainer
+- [Jeddi212](https://github.com/Jeddi212) - creator and maintainer
 
 <hr>
   
