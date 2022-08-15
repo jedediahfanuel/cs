@@ -1,4 +1,4 @@
-require "./err"
+require "./log"
 require "./var"
 
 module NPath
@@ -8,7 +8,7 @@ module NPath
     if Dir.exists?(path)
       path
     else
-      Err.out(path, "is not a valid directory")
+      Log.warn(path, "is not a valid directory")
       exit(1)
     end
   end
