@@ -2,10 +2,8 @@ require "./log"
 require "./var"
 
 module NPath
-  @@accept = [] of String
-    
   def self.filter_path : Array(String)
-    @@accept = ARGV.reject(&.starts_with?('-')).map do |path|
+    ARGV.reject(&.starts_with?('-')).map do |path|
       path
     end
   end
