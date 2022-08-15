@@ -1,5 +1,6 @@
 name: cs
 version: 0.1.0
+description: Another ls like command using Crystal Language
 
 authors:
   - Jeddi212 <jedediahf51@gmail.com>
