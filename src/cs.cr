@@ -29,18 +29,7 @@ OptionParser.parse do |parser|
   
   parser.on "-t", "--tab", "Use tabular output" do
     Format.is_table = true
-    
-    parser.banner = "Usage: cs -t [arguments]"
-    
-    parser.missing_option do |flag|
-      Err.out(flag, "is not a valid option\n")
-      STDERR.puts parser
-      exit(1)
-    end
-    
-    parser.on "-header", "Show header on tabular output" do
-      Format.is_header = true
-    end
+    Format.is_header = true
   end
 end
 
