@@ -40,6 +40,7 @@ def proceed
   
     PrintOut.header if Format.is_header
     PrintOut.tabular
+    Var.flush_table
   else
     PrintOut.grid
   end
