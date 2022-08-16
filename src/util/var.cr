@@ -40,6 +40,10 @@ module Var
   def self.table
     @@table
   end
+  
+  def self.flush_table
+    @@table.clear
+  end
 
   def self.just
     @@just
