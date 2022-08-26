@@ -56,7 +56,7 @@ NOTE: ~ gonne be substituted by your home directory
 
 ## Development
 
-Currently, grid (default) output doesn't support colored output.
+~
 
 ## Contributing
 
