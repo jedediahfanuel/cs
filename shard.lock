@@ -2,7 +2,7 @@ version: 2.0
 shards:
   grid:
     git: https://github.com/jeddi212/grid.git
-    version: 0.1.0
+    version: 0.1.1
 
   ioctl:
     git: https://github.com/crystal-posix/ioctl.cr.git
